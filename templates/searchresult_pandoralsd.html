@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Version 1.0	2018-12-28	YONC
+Apply the Style as same as Call History
+
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Search Result</title>
+<style>
+body {
+    background: none transparent;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+th {
+	background-color: #4489B6;
+	color: #FFF;
+	font-size: 11pt;
+	padding: 10px;
+
+}
+
+td {
+	font-family: Geneva,Arial,Helvetica,sans-serif;
+	font-size: 9pt;
+	color: #333;
+	padding-left: 0px;
+}
+.sort {
+ 
+}
+.sort:hover {
+  text-decoration: none;
+  border-bottom: 2px solid grey;
+}
+
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+</style>
+</head>
+<body>
+  {% if message %}
+  <p>{{ message }}</p>
+  {% endif %}
+  <!--<p>Initial : {{ initial }}</p>-->
+  <!--<p>Position: {{ position }}</p>-->
+  <!--<p>Mobile  : {{ mobile }}</p>-->
+  <!--<p>Manager : {{ manager }}</p>-->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th width="20%" class="sort" >Initial</th>
+      <th width="30%" class="sort" >Position</th>
+      <th width="30%" class="sort" >Mobile</th>
+      <th width="20%" class="sort" >Manager</th>
+    </tr>
+    <tr>
+      <th>{{initial}}</th>
+      <th>{{position}}</th>
+      <th>{{mobile}}</th>
+      <th>{{manager}}</th>
+    </tr>
+	</thead>
+  </table>
+  <p> </p>
+  <form action="/search" method="post">
+    <legend>Please input full phone number, e.g. +4544426000:</legend>
+    <!--<p><input name="initial" placeholder="Initial" value="{{ initial }}"></p>-->
+    <p><input name="phoneNumber" placeholder="Phone Number" value="{{ phoneNumber }}"></p>
+    <p><button type="submit">Search</button></p>
+  </form>
+</body>
+</html>

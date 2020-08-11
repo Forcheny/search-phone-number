@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Version	1.1 2019-10-15	YONC
+Apply the Style as same as Call History
+
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Search User</title>
+<style>
+body {
+background: none transparent;
+padding: 0px;
+margin: 0px;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+  {% if message %}
+  <p style="color:red">{{ message }}</p>
+  {% endif %}
+  <form action="/searchnumber" method="get">
+    <legend>Please select which team that you work in:</legend>
+	<select name="team">
+		<option value="lsd">LSD</option>
+		<option value="pandoralsd">PANDORA LSD</option>
+	</select>
+	<legend>Please Input phone number, e.g. +4544426000:</legend>
+    <p><input name="phoneNumber" placeholder="phoneNumber" value="{{ phoneNumber }}"></p>
+    <p><button type="submit">Search</button></p>
+  </form>
+</body>
+</html>

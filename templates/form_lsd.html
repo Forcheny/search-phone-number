@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+Version	1.1 2019-10-15	YONC
+Updated the table row parameters  that are imported from mainapp.
+
+Version 1.0	2018-12-28	YONC
+Apply the Style as same as Call History
+
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Search Result</title>
+<style>
+body {
+    background: none transparent;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding-left: 5px;
+}
+
+th {
+	background-color: #4489B6;
+	color: #FFF;
+	font-size: 11pt;
+	padding: 10px;
+
+}
+
+td {
+	background-color: #4489B6;
+	color: #FFF;
+	font-size: 11pt;
+	padding: 10px;
+	text-align: center;
+}
+
+.sort {
+
+}
+.sort:hover {
+  text-decoration: none;
+  border-bottom: 2px solid grey;
+}
+
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+</style>
+</head>
+<body>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			  <th width="15%" class="sort" >Initial</th>
+			  <th width="25%" class="sort" >Position</th>
+			  <th width="25%" class="sort" >Manager</th>
+			  <th width="20%" class="sort" >Mobile</th>
+			  <th width="20%" class="sort" >Desk Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in table_data %}
+				<tr>
+					{% for cell in row  %}
+					<td href="#">{{ cell }}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% if message %}
+		<p>{{ message }}</p>
+	{% endif %}
+	<form action="/searchnumber" method="get">
+		<legend>Please Input phone number, e.g. +4544426000:</legend>
+		<p><input name="phoneNumber" placeholder="phoneNumber" value="{{ phoneNumber }}"></p>
+		<p><button type="submit" name="team" value="lsd">Search</button></p>
+	</form>
+</body>
+</html>

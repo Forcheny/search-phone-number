@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Search User</title>
+</head>
+<body>
+  {% if message %}
+  <p style="color:red">{{ message }}</p>
+  {% endif %}
+  <form action="/search" method="post">
+    <legend>Please Input phone number, e.g. +4544426000:</legend>
+    <!--<p><input name="Initial" placeholder="Initial" value="{{ initial }}"></p>-->
+    <p><input name="phoneNumber" placeholder="phoneNumber" value="{{ phoneNumber }}"></p>
+    <p><button type="submit">Search</button></p>
+  </form>
+</body>
+</html>
